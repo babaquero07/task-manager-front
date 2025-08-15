@@ -22,3 +22,20 @@ export interface GetTaskResponse {
   message: string;
   task: Task;
 }
+
+export interface DeleteTaskResponse {
+  ok: boolean;
+  message: string;
+}
+
+export interface CreateTask {
+  title: string;
+  description: string;
+  status: string;
+}
+
+export interface CreateTaskResponse {
+  ok: boolean;
+  message: string;
+  task: Task;
+}
