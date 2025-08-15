@@ -5,6 +5,7 @@ import useTasks from "../../hooks/useTasks";
 import Loading from "../atoms/Loading";
 import Pagination from "../molecules/Pagination";
 import TaskList from "../organisms/TaskList";
+import { ToastContainer, toast } from "react-toastify";
 
 const options: { label: string; value: string | null }[] = [
   {
@@ -58,6 +59,10 @@ const Tasks = () => {
       </div>
     );
 
+  if (error) {
+    toast.error(error);
+  }
+
   return (
     <>
       <header className="bg-white mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -66,7 +71,7 @@ const Tasks = () => {
             Task Manager
           </h1>
           <p className="text-gray-600">
-            Explora y filtra entre 100 tareas disponibles
+            Explora y filtra entre las tareas disponibles
           </p>
         </div>
 
@@ -84,6 +89,8 @@ const Tasks = () => {
         currentPage={+currentPage}
         onPageChange={handlePageChange}
       />
+
+      <ToastContainer />
     </>
   );
 };
