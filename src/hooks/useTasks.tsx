@@ -6,6 +6,8 @@ import type {
   GetTaskResponse,
   GetTasksResponse,
   Task,
+  UpdateTask,
+  UpdateTaskResponse,
 } from "../interfaces/Task.interface";
 import taskManagerApi from "../api/axios-config";
 
@@ -104,6 +106,25 @@ const useTasks = () => {
     }
   };
 
+  const updateTask = async (id: number, task: UpdateTask) => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      const res = await taskManagerApi.patch<UpdateTaskResponse>(
+        `/tasks/${id}`,
+        task
+      );
+
+      return res;
+    } catch (error) {
+      console.log(error);
+      setError("Error al actualizar la tarea");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return {
     tasks,
     loading,
@@ -112,6 +133,7 @@ const useTasks = () => {
     getTask,
     deleteTask,
     createTask,
+    updateTask,
     task,
     pages,
   };

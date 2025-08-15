@@ -39,3 +39,15 @@ export interface CreateTaskResponse {
   message: string;
   task: Task;
 }
+
+export interface UpdateTask {
+  title?: string;
+  description?: string;
+  status?: string;
+}
+
+export interface UpdateTaskResponse {
+  ok: boolean;
+  message: string;
+  task: Task;
+}
