@@ -9,7 +9,7 @@ type Inputs = {
   status: string;
 };
 
-const options = [
+const formOptions: { label: string; value: string }[] = [
   { label: "Pendiente", value: "pendiente" },
   { label: "En progreso", value: "en_progreso" },
   { label: "Completada", value: "completada" },
@@ -66,7 +66,7 @@ const CreateTask = () => {
           className="w-full p-2 rounded-md border border-gray-300"
         >
           <option value="">Selecciona un estado</option>
-          {options.map((option) => (
+          {formOptions.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>
