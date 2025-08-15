@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import Navbar from "../molecules/Navbar";
-import Footer from "../molecules/Footer";
+// import Footer from "../molecules/Footer";
 
 const TasksLayout = () => {
   return (
@@ -11,7 +11,7 @@ const TasksLayout = () => {
         <Outlet />
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
